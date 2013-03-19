@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["herold@emjot.de"]
   spec.description   = %q{patch for formtastic to make its magical column type determination work with globalize3 translated models}
   spec.summary       = %q{formtastic features for globalize3 translated models}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/emjot/formtastic-globalize3"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
