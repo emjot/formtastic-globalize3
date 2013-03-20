@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-include FormtasticSpecHelper
 
 describe 'Formtastic::FormBuilder#input' do
+
+  include FormtasticSpecHelper
 
   def posts_path(*args); "/posts"; end
 
