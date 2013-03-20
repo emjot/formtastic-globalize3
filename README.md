@@ -30,7 +30,7 @@ You don't need to do anything, just include it in your Gemfile.
 
 ## Todo
 
-* Tests!
+* Tests: use actual globalize3 translated models instead of stubbing them
 
 ## Contributing
 
