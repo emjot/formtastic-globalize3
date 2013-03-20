@@ -4,7 +4,7 @@ rvm:
   - 1.9.2
   - 1.9.3
   - ree
-script: "rake spec"
+script: "bundle exec rake spec"
 gemfile:
   - gemfiles/rails_3.1.gemfile
   - gemfiles/rails_3.2.gemfile
