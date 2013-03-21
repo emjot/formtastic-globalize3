@@ -6,60 +6,42 @@ describe 'Formtastic::FormBuilder#input' do
   include FormtasticSpecHelper
 
   def posts_path(*args); "/posts"; end
+  def untranslateds_path(*args); "/untranslateds"; end
 
-  before(:each) do
-    @new_post = double('post')
-    @new_post.stub(:class       => ::Post,
-                   :id          => nil,
-                   :new_record? => true,
-                   :errors      => double('errors', :[] => nil),
-                   :to_key      => nil,
-                   :to_model    => @new_post,
-                   :persisted?  => nil)
-  end
+  describe 'column_for' do
 
-  describe 'column_for type detection' do
-
-    describe 'on an untranslated column' do
+    describe 'on an untranslated model' do
 
       before(:each) do
-        @new_post.stub(:translations => nil)
+        @untranslated = Untranslated.new
       end
 
-      it 'should detect a string type' do
-        @new_post.stub(:column_for_attribute => :string)
-        semantic_form_for(@new_post) do |builder|
-          builder.send(:column_for, :foo).should == :string
-        end
-      end
-
-      it 'should detect an integer type' do
-        @new_post.stub(:column_for_attribute => :integer)
-        semantic_form_for(@new_post) do |builder|
-          builder.send(:column_for, :foo).should == :integer
+      it 'should detect the type' do
+        semantic_form_for(@untranslated) do |builder|
+          builder.send(:column_for, :name).type.should == :string
+          builder.send(:column_for, :rating).type.should == :integer
         end
       end
 
     end
 
-    describe 'on a translated column' do
+    describe 'on a translated model' do
 
       before(:each) do
-        @translation = double('translation')
-        @new_post.stub(:translations => [@translation])
+        @post = Post.new
       end
 
-      it 'should detect a string type' do
-        @translation.stub(:column_for_attribute => :string)
-        semantic_form_for(@new_post) do |builder|
-          builder.send(:column_for, :foo).should == :string
+      it 'should detect the type of a translated column' do
+        semantic_form_for(@post) do |builder|
+          builder.send(:column_for, :title).type.should == :string
+          builder.send(:column_for, :published).type.should == :boolean
+          builder.send(:column_for, :published_at).type.should == :datetime
         end
       end
 
-      it 'should detect an integer type' do
-        @translation.stub(:column_for_attribute => :integer)
-        semantic_form_for(@new_post) do |builder|
-          builder.send(:column_for, :foo).should == :integer
+      it 'should detect the type of an untranslated column' do
+        semantic_form_for(@post) do |builder|
+          builder.send(:column_for, :rating).type.should == :integer
         end
       end
 

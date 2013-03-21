@@ -30,10 +30,6 @@ Or install it yourself as:
 
 You don't need to do anything, just include it in your Gemfile.
 
-## Todo
-
-* Tests: use actual globalize3 translated models instead of stubbing them
-
 ## Contributing
 
 1. Fork it
