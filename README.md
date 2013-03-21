@@ -1,5 +1,7 @@
 # Formtastic::Globalize3
 
+[![Build Status](https://travis-ci.org/emjot/formtastic-globalize3.png?branch=master)](https://travis-ci.org/emjot/formtastic-globalize3)
+
 Transparently use globalize3 translated model fields in formtastic forms.
 
 Without this gem, formtastic can't detect the column type of translated columns correctly (for example, you get a text field instead of a checkbox for a boolean column).
