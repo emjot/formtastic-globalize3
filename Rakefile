@@ -3,9 +3,13 @@ require 'appraisal'
 require 'rspec/core/rake_task'
 
 require 'bundler/gem_tasks'
+require 'wwtd/tasks'
 
-desc 'Default: run all tests with all supported Rails versions'
-task :default => :all
+desc 'Default: run the rspec examples'
+task :default => [:spec]
+#task :default => :all
+
+task :local => "wwtd:local" # run all gemfiles with local ruby
 
 desc 'Run tests with all supported Rails versions.'
 task :all => ["appraisal:install"] do

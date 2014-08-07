@@ -30,6 +30,16 @@ Or install it yourself as:
 
 You don't need to do anything, just include it in your Gemfile.
 
+## Development
+
+To setup tests, make sure all the ruby versions defined in `.travis.yml` are installed on your system.
+
+Run tests via:
+
+* `rake wwtd` (or, faster: `rake wwtd:parallel`) for all combinations of ruby/rails versions
+* `rake wwtd:local` for all rails versions, but only on current ruby
+* `rake spec` (or e.g. `bundle exec rspec spec --format documentation`) with main Gemfile and only on current ruby 
+
 ## Contributing
 
 1. Fork it
