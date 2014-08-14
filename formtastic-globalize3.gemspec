@@ -8,10 +8,14 @@ Gem::Specification.new do |spec|
   spec.version       = Formtastic::Globalize3::VERSION
   spec.authors       = ["Maximilian Herold"]
   spec.email         = ["herold@emjot.de"]
-  spec.description   = %q{patch for formtastic to make its magical column type determination work with globalize3 translated models}
-  spec.summary       = %q{formtastic features for globalize3 translated models}
+  spec.description   = %q{(obsolete) patch for formtastic to make its magical column type determination work with globalize3 translated models}
+  spec.summary       = %q{(obsolete) formtastic features for globalize3 translated models}
   spec.homepage      = "https://github.com/emjot/formtastic-globalize3"
   spec.license       = "MIT"
+  spec.post_install_message =<<MESSAGE
+This gem is not necessary any more - you can simply remove it!
+Also, you should switch from 'globalize3' to 'globalize'.
+MESSAGE
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
